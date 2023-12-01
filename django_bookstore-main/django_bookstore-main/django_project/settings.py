@@ -184,7 +184,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-DEFAULT_FROM_EMAIL = "vckkrocks@gmail.com"
+DEFAULT_FROM_EMAIL = "karanamanirudhakulakarni@gmail.com"
 
 """ Email Configuration """
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -197,8 +197,8 @@ DEFAULT_FROM_EMAIL = "vckkrocks@gmail.com"
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'vckkrocks@gmail.com'
-EMAIL_HOST_PASSWORD = 'luhu kvse dolp kjsc'
+EMAIL_HOST_USER = 'karanamanirudhakulakarni@gmail.com'
+EMAIL_HOST_PASSWORD = 'gsid yloo froc jzzq'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
