@@ -1,0 +1,5 @@
+BRAND/CO-BRAND	NUMBER	CVC	DATE
+Cartes Bancaires/Visa	4000002500001001	Any 3 digits	Any future date
+Cartes Bancaires/Mastercard	5555552500001001	Any 3 digits	Any future date
+eftpos Australia/Visa	4000050360000001	Any 3 digits	Any future date
+eftpos Australia/Mastercard	5555050360000080	Any 3 digits	Any future date
