@@ -30,4 +30,6 @@ tzdata==2022.7
 urllib3==1.26.14
 whitenoise==6.3.0
 Pillow
-dotenv
+python-dotenv
+django
+stripe
