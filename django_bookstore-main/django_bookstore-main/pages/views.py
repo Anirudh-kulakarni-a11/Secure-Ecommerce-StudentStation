@@ -42,9 +42,11 @@ def payment_success(request):
 
     return redirect('home')
 
+@login_required
 def payment_cancel(request):
     return render(request, 'cancel.html')
 
+@login_required
 def stripe_checkout(request):
     if request.method == 'POST':
         # Create Stripe Checkout Session

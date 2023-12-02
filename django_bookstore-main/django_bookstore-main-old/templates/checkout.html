@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h2>Checkout</h2>
+    <p>Click below to buy the book.</p>
+    <form action="{% url 'stripe_checkout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Buy with Stripe</button>
+    </form>
+</body>
+</html>

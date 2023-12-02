@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 from pages.views import stripe_checkout, payment_success, payment_cancel
 
-
 urlpatterns = [
     # Django admin
     path("admin/", admin.site.urls),
@@ -33,3 +32,4 @@ urlpatterns = [
     path('success/', payment_success, name='payment_success'),
     path('cancel/', payment_cancel, name='payment_cancel'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

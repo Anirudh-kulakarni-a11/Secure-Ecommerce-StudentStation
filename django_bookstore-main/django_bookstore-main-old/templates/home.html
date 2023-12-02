@@ -1,0 +1,95 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load random_rgba_color %}
+
+{% block title %}
+StudentStation✨
+{% endblock title %}
+
+{% block content %}
+<div class="mt-4 w-100 d-flex flex-column justify-content-start align-items-center">
+    <div class="bookstore-landscape d-flex flex-column justify-content-center align-items-center">
+        <h2 class="border border-secondary bg-body-secondary p-4">Book and Reviews</h2>
+        <p class="text-white bg-dark p-2 border-bottom border-danger">For many books and many reviews</p>
+        <p class="text-white bg-dark p-2 border-bottom border-danger">From people like you</p>
+    </div>
+
+    <div class="container d-md-flex flex-column flex-md-row my-4">
+        <section class="w-100 d-flex flex-column mb-4 w-auto" style="max-width: 40em;">
+            <h2 class="p-3 bg-dark bg-opacity-10 border border-4 border-secondary">
+                Week's Selection Book
+            </h2>
+            <picture class="w-50 align-self-center">
+                <img src="{% static 'images/dfp.jpg' %}" class="img-fluid img-thumbnail"
+                    alt="django for professionals book">
+            </picture>
+            <blockquote class="blockquote">
+                <p>W. Vincent - Django Printed Book</p>
+            </blockquote>
+            <p class="fs-5 text-center">
+                A book of Django for Professionals takes your web development skills to the next level, teaching you how to build
+                production-ready websites with Python and Django.
+            </p>
+            <div class="box d-flex justify-content-center">
+                <a href="{% url 'stripe_checkout' %}">Buy Book with Stripe</a>
+            </div>
+        </section>
+        <section class="w-100 position-relative d-flex flex-column justify-content-start align-items-center">
+            <div class="position-sticky neumorphism-border d-flex flex-column text-center p-4 mx-6" style="top: 10em;">
+                <h2>Keep In Touch</h2>
+                <p>With you account</p>
+                <div class="border border-dark d-flex flex-column justify-content-start align-items-center py-4">
+                    {% if not user.is_authenticated %}
+                    <a class="btn btn-success fs-5 fw-bold" href="{% url 'account_login' %}">Log In</a>
+                    <p class="m-0 py-2">-- Or --</p>
+                    <a class="btn btn-danger fs-5 fw-bold" href="{% url 'account_signup' %}">Sign Up</a>
+                    {% else %}
+                    <p class="text-center">You're currently using</p>
+                    <p class="fs-3">{{ user.username|title }}</p>
+                    <p class="text-center">Account</p>
+                    <p>✨Welcome to Bookstore✨</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- <section class="my-5 container border p-4">
+        <h2>Latest Books✨</h2>
+        <div class="d-flex flex-row-reverse flex-wrap justify-content-around align-items-start">
+            {% for book in last_5_books %}
+            <a class="w-20 p-0" href="{{ book.get_absolute_url }}" title="{{ book.title }}"
+                aria-label="book {{ book.title }}">
+                {% if book.cover %}
+                <img class="img-fluid img-thumbnail" src="{{ book.cover.url }}" alt="{{ book.title }}" width="180" height="160">
+                {% else %}
+                <article class="border w-100 d-flex justify-content-center align-items-center fs-5 fw-bold text-center "
+                        style="max-width:10em; min-height: 10em; background-color: {% random_rgba_color 0.5 %} ;">
+                        {{ book.title|truncatechars:35 }}
+                </article>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <!-- <section class="my-5 container border p-4">
+        <h2>Latest Items✨</h2>
+        <div class="d-flex flex-row-reverse flex-wrap justify-content-around align-items-start">
+            {% for item in last_items %}
+                <a class="w-20 p-0" href="{{ item.get_absolute_url }}" title="{{ item.title }}"
+                    aria-label="item {{ item.title }}">
+                    {% if item.cover %}
+                    <img class="img-fluid img-thumbnail" src="{{ item.cover.url }}" alt="{{ item.title }}" width="180" height="160">
+                    {% else %}
+                    <article class="border w-100 d-flex justify-content-center align-items-center fs-5 fw-bold text-center"
+                            style="max-width:10em; min-height: 10em; background-color: {% random_rgba_color 0.5 %};">
+                            {{ item.title|truncatechars:35 }}
+                    </article>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    </section> --> -->
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Two-Factor Authentication</h2>
+            <p>Please enter the verification code sent to your email.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="code">Verification Code</label>
+                    <input type="text" class="form-control" id="code" name="code" placeholder="Enter 2FA code" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Verify</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

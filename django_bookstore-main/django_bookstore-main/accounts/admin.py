@@ -8,7 +8,6 @@ CustomUser = get_user_model()
 
 # Register your models here.
 
-
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm

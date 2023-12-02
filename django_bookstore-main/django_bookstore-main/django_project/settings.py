@@ -33,11 +33,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "0").lower() in ["true", "t", "1"]
 
-allowed_hosts = os.getenv("ALLOWED_HOSTS")
-if allowed_hosts:
-    ALLOWED_HOSTS = allowed_hosts.split(" ")
-else:
-    ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -177,14 +173,18 @@ SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
+    "accounts.adapters.TwoFactorAdapter",
 )
+
+ACCOUNT_ADAPTER = 'accounts.adapter.CustomAccountAdapter'
+
 """ ACCOUNT_SESSION_REMEMBER = True """
 """ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False """
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-DEFAULT_FROM_EMAIL = "karanamanirudhakulakarni@gmail.com"
+DEFAULT_FROM_EMAIL = "vckkrocks@gmail.com"
 
 """ Email Configuration """
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -194,11 +194,11 @@ DEFAULT_FROM_EMAIL = "karanamanirudhakulakarni@gmail.com"
 # EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 # EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'karanamanirudhakulakarni@gmail.com'
-EMAIL_HOST_PASSWORD = 'gsid yloo froc jzzq'
+EMAIL_HOST_USER = "vckkrocks@gmail.com"
+EMAIL_HOST_PASSWORD = "luhu kvse dolp kjsc"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
